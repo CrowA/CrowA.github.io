@@ -1,0 +1,145 @@
+@font-face {
+  font-family: "EB Garamond";
+  src: url("../assets/fonts/EBGaramond-Variable.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 400 800;
+  font-display: swap;
+}
+
+html {
+  background: #fff;
+}
+
+body.photography-series {
+  min-height: 100svh;
+  background: #fff;
+  color: #111;
+  font-family: "EB Garamond", Garamond, Georgia, serif;
+  font-size: 0.95rem;
+  line-height: 1.4;
+}
+
+.photography-series .nav {
+  padding: clamp(1.1rem, 1.6vw, 1.75rem) clamp(1.25rem, 6vw, 6rem);
+  color: #111;
+  background: transparent;
+}
+
+.photography-series .nav.is-scrolled {
+  color: #111;
+  background: transparent;
+  -webkit-backdrop-filter: none;
+  backdrop-filter: none;
+}
+
+.photography-series .nav__links {
+  gap: clamp(1.25rem, 2.5vw, 2.5rem);
+}
+
+.photography-series .nav__links a,
+.photography-series .nav__toggle {
+  font-family: "EB Garamond", Garamond, Georgia, serif;
+  font-size: 0.86rem;
+  font-weight: 400;
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+.photography-series .nav__links a::after {
+  height: 1px;
+  bottom: 0.25rem;
+}
+
+.photography-series .nav-overlay {
+  background: #fff;
+  color: #111;
+  font-family: "EB Garamond", Garamond, Georgia, serif;
+}
+
+.photography-series .nav-overlay a {
+  font-size: clamp(2rem, 9vw, 3.4rem);
+  font-weight: 400;
+  letter-spacing: 0;
+}
+
+.photography-series .nav-overlay .micro {
+  font-family: inherit;
+  font-weight: 400;
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+.photography-series.menu-open .nav {
+  color: #111;
+}
+
+.series-title {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+.series-gallery {
+  display: grid;
+  gap: clamp(6rem, 16vh, 12rem);
+  padding: clamp(8rem, 15vh, 11rem) clamp(1.25rem, 6vw, 6rem) 0;
+}
+
+.series-gallery figure {
+  display: grid;
+  min-width: 0;
+  place-items: center;
+}
+
+.series-gallery img {
+  width: auto;
+  height: auto;
+  max-width: min(88vw, 1600px);
+  max-height: 88svh;
+  object-fit: contain;
+}
+
+.series-next {
+  display: grid;
+  min-height: 55svh;
+  place-items: center;
+  padding: clamp(7rem, 18vh, 13rem) 1.25rem;
+}
+
+.series-next a {
+  font-size: clamp(0.95rem, 1.2vw, 1.1rem);
+  text-decoration: none;
+}
+
+.series-next a:hover,
+.series-next a:focus-visible {
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.2em;
+}
+
+@media (max-width: 720px) {
+  .series-gallery {
+    gap: clamp(4.5rem, 12vh, 7rem);
+    padding: 7rem 1.25rem 0;
+  }
+
+  .series-gallery img {
+    max-width: 100%;
+    max-height: 82svh;
+  }
+
+  .series-next {
+    min-height: 42svh;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}

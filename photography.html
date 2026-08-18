@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Photography — Crowtao</title>
+  <meta name="description" content="A photographic index by Crowtao.">
+  <meta name="theme-color" content="#ffffff">
+  <meta property="og:title" content="Photography — Crowtao">
+  <meta property="og:description" content="A photographic index by Crowtao.">
+  <meta property="og:type" content="website">
+  <!-- PLACEHOLDER: after deploying, set your real domain and uncomment -->
+  <!-- <meta property="og:url" content="https://your-domain.com/photography.html">
+       <meta property="og:image" content="https://your-domain.com/assets/img/og.jpg">
+       <meta property="og:image:width" content="1200">
+       <meta property="og:image:height" content="630">
+       <meta name="twitter:card" content="summary_large_image"> -->
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+  <link rel="preload" href="assets/fonts/EBGaramond-Variable.ttf" as="font" type="font/ttf" crossorigin>
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    @font-face {
+      font-family: "EB Garamond";
+      src: url("assets/fonts/EBGaramond-Variable.ttf") format("truetype");
+      font-style: normal;
+      font-weight: 400 800;
+      font-display: swap;
+    }
+
+    .work-gallery {
+      min-height: 100svh;
+      overflow: hidden;
+      background: #fff;
+      color: #111;
+      font-family: "EB Garamond", Garamond, Georgia, serif;
+    }
+
+    .work-gallery .nav {
+      padding: clamp(1.1rem, 1.6vw, 1.75rem) clamp(1.25rem, 6vw, 6rem);
+      color: #111;
+      background: transparent;
+      transition: color 180ms ease;
+    }
+
+    .work-gallery .nav.is-scrolled {
+      background: transparent;
+      -webkit-backdrop-filter: none;
+      backdrop-filter: none;
+    }
+
+    .work-gallery .nav__links {
+      gap: clamp(1.25rem, 2.5vw, 2.5rem);
+    }
+
+    .work-gallery .nav__links a,
+    .work-gallery .nav__toggle {
+      font-family: "EB Garamond", Garamond, Georgia, serif;
+      font-size: 0.86rem;
+      font-weight: 400;
+      letter-spacing: 0;
+      text-transform: none;
+    }
+
+    .work-gallery .nav__links a::after {
+      height: 1px;
+      bottom: 0.25rem;
+    }
+
+    .work-gallery.work-background-active .nav {
+      color: #fff;
+    }
+
+    .work-gallery.menu-open .nav {
+      color: #111;
+    }
+
+    .work-gallery .nav-overlay {
+      background: #fff;
+      color: #111;
+      font-family: "EB Garamond", Garamond, Georgia, serif;
+    }
+
+    .work-gallery .nav-overlay a {
+      font-weight: 400;
+    }
+
+    .work-gallery .nav-overlay .micro {
+      font-family: inherit;
+      font-weight: 400;
+      letter-spacing: 0;
+      text-transform: none;
+    }
+
+    .work-gallery main {
+      min-height: 100svh;
+    }
+
+    .gallery-index {
+      position: relative;
+      isolation: isolate;
+      display: grid;
+      min-height: 100svh;
+      place-items: center;
+      overflow: hidden;
+      background: #fff;
+    }
+
+    .gallery-index__backgrounds,
+    .gallery-index__background,
+    .gallery-index__background::after,
+    .gallery-index__background img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    .gallery-index__backgrounds {
+      z-index: -1;
+    }
+
+    .gallery-index__background {
+      opacity: 0;
+      transition: opacity 420ms ease;
+    }
+
+    .gallery-index__background.is-active {
+      opacity: 1;
+    }
+
+    .gallery-index__background::after {
+      content: "";
+      z-index: 1;
+      background: rgba(0, 0, 0, 0.15);
+    }
+
+    .gallery-index__background img {
+      object-fit: cover;
+    }
+
+    .gallery-index__nav {
+      width: min(88vw, 980px);
+      padding: 7rem 0 4rem;
+    }
+
+    .gallery-index__list {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      gap: 0.1em 0.78em;
+      list-style: none;
+    }
+
+    .gallery-index__link {
+      position: relative;
+      display: inline-block;
+      color: #111;
+      font-family: "EB Garamond", Garamond, Georgia, serif;
+      font-size: clamp(1.25rem, 1.8vw, 1.55rem);
+      font-weight: 400;
+      line-height: 1.4;
+      text-decoration: none;
+      transition: color 180ms ease, opacity 180ms ease;
+    }
+
+    .gallery-index.has-active .gallery-index__link {
+      color: #fff;
+      text-shadow: 0 1px 14px rgba(0, 0, 0, 0.22);
+    }
+
+    .gallery-index.has-active .gallery-index__link:not(:hover):not(:focus-visible) {
+      opacity: 0.72;
+    }
+
+    .gallery-index__link:hover,
+    .gallery-index__link:focus-visible {
+      opacity: 1;
+      text-decoration: none;
+    }
+
+    .gallery-index__source {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      overflow: hidden;
+      clip: rect(0 0 0 0);
+      clip-path: inset(50%);
+      white-space: nowrap;
+    }
+
+    @media (max-width: 720px) {
+      .gallery-index__nav {
+        width: min(82vw, 28rem);
+        padding-top: 6rem;
+      }
+
+      .gallery-index__list {
+        gap: 0.25em 0.72em;
+      }
+
+      .gallery-index__link {
+        font-size: clamp(1.2rem, 5vw, 1.45rem);
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .gallery-index__background,
+      .gallery-index__link,
+      .work-gallery .nav {
+        transition: none;
+      }
+    }
+  </style>
+</head>
+<body class="work-gallery">
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="nav">
+    <nav aria-label="Main">
+      <ul class="nav__links">
+        <li><a href="physics.html">Physics</a></li>
+        <li><a href="photography.html" aria-current="page">Photography</a></li>
+        <li><a href="about.html">About</a></li>
+      </ul>
+    </nav>
+    <button class="nav__toggle" aria-expanded="false" aria-controls="nav-overlay">Menu</button>
+  </header>
+
+  <div class="nav-overlay" id="nav-overlay">
+    <nav aria-label="Mobile">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="physics.html">Physics</a></li>
+        <li><a href="photography.html" aria-current="page">Photography</a></li>
+        <li><a href="about.html">About</a></li>
+      </ul>
+    </nav>
+    <p class="micro">Photography &amp; Physics</p>
+  </div>
+
+  <main id="main">
+    <section class="gallery-index" aria-labelledby="gallery-index-title">
+      <h1 id="gallery-index-title" class="gallery-index__source">Photography</h1>
+
+      <div class="gallery-index__backgrounds" aria-hidden="true">
+        <figure class="gallery-index__background"><img src="assets/img/intro/MFLX-17.jpg" alt=""></figure>
+        <figure class="gallery-index__background"><img src="assets/img/intro/MFLX-15.jpg" alt=""></figure>
+        <figure class="gallery-index__background"><img src="assets/img/intro/MFLX-36527.jpg" alt=""></figure>
+        <figure class="gallery-index__background"><img src="assets/img/intro/MFLX-13.jpg" alt=""></figure>
+        <figure class="gallery-index__background"><img src="assets/img/intro/MFLX-36542.jpg" alt=""></figure>
+        <figure class="gallery-index__background"><img src="assets/img/intro/MFLX-36620.jpg" alt=""></figure>
+        <figure class="gallery-index__background"><img src="assets/img/intro/MFLX-36621.jpg" alt=""></figure>
+        <figure class="gallery-index__background"><img src="assets/img/intro/MFLX-36543.jpg" alt=""></figure>
+      </div>
+
+      <nav class="gallery-index__nav" aria-label="Photographic works">
+        <ol class="gallery-index__list">
+          <li><a class="gallery-index__link" href="photography-i.html" data-index="0">I</a></li>
+          <li><a class="gallery-index__link" href="photography-ii.html" data-index="1">II</a></li>
+          <li><a class="gallery-index__link" href="photography-iii.html" data-index="2">III</a></li>
+          <li><a class="gallery-index__link" href="photography-iv.html" data-index="3">IV</a></li>
+          <li><a class="gallery-index__link" href="photography-v.html" data-index="4">V</a></li>
+          <li><a class="gallery-index__link" href="photography-vi.html" data-index="5">VI</a></li>
+          <li><a class="gallery-index__link" href="photography-vii.html" data-index="6">VII</a></li>
+          <li><a class="gallery-index__link" href="photography-viii.html" data-index="7">VIII</a></li>
+        </ol>
+      </nav>
+    </section>
+  </main>
+
+  <script src="js/main.js"></script>
+  <script>
+    (function () {
+      "use strict";
+
+      var stage = document.querySelector(".gallery-index");
+      var links = Array.prototype.slice.call(
+        document.querySelectorAll(".gallery-index__link")
+      );
+      var backgrounds = Array.prototype.slice.call(
+        document.querySelectorAll(".gallery-index__background")
+      );
+
+      function activate(index) {
+        backgrounds.forEach(function (background, current) {
+          background.classList.toggle("is-active", current === index);
+        });
+        stage.classList.add("has-active");
+        document.body.classList.add("work-background-active");
+      }
+
+      function clear() {
+        backgrounds.forEach(function (background) {
+          background.classList.remove("is-active");
+        });
+        stage.classList.remove("has-active");
+        document.body.classList.remove("work-background-active");
+      }
+
+      links.forEach(function (link) {
+        var index = Number(link.dataset.index);
+        link.addEventListener("pointerenter", function () {
+          activate(index);
+        });
+        link.addEventListener("pointerleave", clear);
+        link.addEventListener("focus", function () {
+          activate(index);
+        });
+        link.addEventListener("blur", clear);
+      });
+    })();
+  </script>
+</body>
+</html>

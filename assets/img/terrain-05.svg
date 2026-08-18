@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1500" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <linearGradient id="g" x1="0" y1="1" x2="0" y2="0">
+      <stop offset="0.00" stop-color="#03045e"/>
+      <stop offset="0.50" stop-color="#0077b6"/>
+      <stop offset="1.00" stop-color="#90e0ef"/>
+    </linearGradient>
+    <filter id="grain">
+      <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" stitchTiles="stitch"/>
+      <feColorMatrix type="matrix" values="0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 0.06 0"/>
+      <feComposite operator="over" in2="SourceGraphic"/>
+    </filter>
+    <radialGradient id="glow" cx="0.5" cy="0.85" r="0.75">
+      <stop offset="0" stop-color="#caf0f8" stop-opacity="0.55"/>
+      <stop offset="1" stop-color="#caf0f8" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <g filter="url(#grain)">
+    <rect width="1200" height="1500" fill="url(#g)"/>
+    <rect width="1200" height="1500" fill="url(#glow)"/>
+    <rect x="0" y="1050" width="1200" height="450" fill="#02023c" opacity="0.9"/>
+  </g>
+</svg>
