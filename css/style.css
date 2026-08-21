@@ -178,6 +178,8 @@ body.theme-paper {
 .intro.is-patch-preview,
 .intro.is-patch-expanding {
   background: transparent;
+  /* Once the exit starts, let clicks reach the page beneath. */
+  pointer-events: none;
 }
 .intro__card {
   position: relative;

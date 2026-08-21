@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Crowtao — Intro V1 (对比版)</title>
+  <meta name="description" content="Comparison page: the first version of the opening animation.">
+  <meta name="robots" content="noindex">
+  <meta name="theme-color" content="#1512e6">
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+  <link rel="preload" href="assets/fonts/SpaceGrotesk-var.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    /* ============ Intro V1 (the first version, kept for comparison) ============
+       Fast even shuffle through all photos with a [00]→[100] counter,
+       ending with photos scattering outward as the overlay fades. */
+    .introv1 {
+      position: fixed;
+      inset: 0;
+      z-index: 300;
+      background: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: opacity 0.55s var(--ease-out);
+    }
+    .introv1.is-leaving {
+      opacity: 0;
+      pointer-events: none;
+    }
+    .introv1__card {
+      position: relative;
+      height: min(52vh, 60vw);
+      aspect-ratio: 3 / 4;
+      background: var(--blue);
+      transition: opacity 0.3s;
+    }
+    .introv1__card img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .introv1__counter {
+      position: absolute;
+      top: -0.2rem;
+      right: -3.6rem;
+      color: var(--blue);
+    }
+    .introv1__fly {
+      position: fixed;
+      object-fit: cover;
+      z-index: 301;
+      transition: transform 0.75s var(--ease-out), opacity 0.75s var(--ease-out);
+      will-change: transform, opacity;
+    }
+    /* Corner badge so the two pages are easy to tell apart. */
+    .v1-badge {
+      position: fixed;
+      bottom: 1rem;
+      left: 1rem;
+      z-index: 400;
+      background: var(--blue);
+      color: #fff;
+      padding: 0.55rem 1rem;
+      border-radius: 999px;
+      font-family: var(--font-mono);
+      font-size: var(--size-micro);
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+  </style>
+  <noscript>
+    <style>
+      .introv1 { display: none; }
+      .reveal, .line-mask > .line-in { opacity: 1 !important; transform: none !important; }
+    </style>
+  </noscript>
+</head>
+<body>
+  <!-- Intro V1: even-paced shuffle through the photographs, then scatter. -->
+  <div class="introv1" aria-hidden="true"
+       data-images="assets/img/intro/MFLX-13.jpg, assets/img/intro/MFLX-15.jpg, assets/img/intro/MFLX-17.jpg, assets/img/intro/MFLX-18.jpg, assets/img/intro/MFLX-36527.jpg, assets/img/intro/MFLX-36538.jpg, assets/img/intro/MFLX-36539.jpg, assets/img/intro/Last 2.jpg, assets/img/intro/Last.png">
+    <div class="introv1__card">
+      <img class="introv1__img" src="assets/img/intro/MFLX-13.jpg" alt="">
+      <span class="introv1__counter micro">[00]</span>
+    </div>
+  </div>
+
+  <a class="v1-badge" href="index.html">Intro V1 · 当前版 →</a>
+
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="nav">
+    <nav aria-label="Main">
+      <ul class="nav__links">
+        <li><a href="physics.html">Physics</a></li>
+        <li><a href="photography.html">Photography</a></li>
+        <li><a href="about.html">About</a></li>
+      </ul>
+    </nav>
+    <button class="nav__toggle" aria-expanded="false" aria-controls="nav-overlay">Menu</button>
+  </header>
+
+  <div class="nav-overlay" id="nav-overlay">
+    <nav aria-label="Mobile">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="physics.html">Physics</a></li>
+        <li><a href="photography.html">Photography</a></li>
+        <li><a href="about.html">About</a></li>
+      </ul>
+    </nav>
+    <p class="micro">Photography &amp; Physics</p>
+  </div>
+
+  <main id="main">
+    <!-- ============ HERO ============ -->
+    <section class="hero">
+      <canvas class="hero__canvas" aria-hidden="true"></canvas>
+      <div class="hero__corners micro" aria-hidden="true">
+        <span class="hero__corner-tl">Photographer<br>&amp; Physicist</span>
+        <span class="hero__corner-tr">Field notes in<br>light &amp; matter</span>
+      </div>
+      <div class="hero__inner">
+        <h1 class="hero__title">
+          <span class="line-mask"><span class="line-in" style="--reveal-delay:0s">Light,</span></span>
+          <span class="line-mask"><span class="line-in" style="--reveal-delay:0.08s">Matter</span></span>
+          <span class="line-mask"><span class="line-in" style="--reveal-delay:0.16s">&amp; Time</span></span>
+        </h1>
+        <p class="hero__sub reveal" style="--reveal-delay:0.3s">
+          Crowtao — photographer and physicist.
+          Two instruments, one attempt to understand the world.
+        </p>
+      </div>
+      <span class="hero__scroll micro" aria-hidden="true">Scroll</span>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer__bottom micro">
+      <span>© <span data-year>2026</span> Crowtao</span>
+      <span>Intro V1 comparison page — <a href="index.html">back to the current version</a></span>
+    </div>
+  </footer>
+
+  <script src="js/main-v1.js"></script>
+</body>
+</html>

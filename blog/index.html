@@ -1,0 +1,63 @@
+---
+layout: blog
+title: null
+---
+<div class="blog-cols">
+  <main id="main" aria-label="Posts">
+    {% for post in site.posts %}
+    <article class="post">
+      <header>
+        <h2 class="post__title"><a href="{{ post.url }}">{{ post.title }}</a></h2>
+        <p class="post__meta">Posted on {{ post.date | date: "%B %-d, %Y" }} by {{ site.author }}</p>
+      </header>
+      <div class="post__content">
+        {{ post.content }}
+      </div>
+    </article>
+    {% endfor %}
+  </main>
+
+  <aside aria-label="Sidebar">
+    <section class="widget" aria-labelledby="w-about">
+      <h2 class="widget__title" id="w-about">About</h2>
+      <p>
+        I am Crow (Ming) Tao — a physicist who never stopped carrying a
+        camera. I study quantum gravity and quantum information at the
+        Universiteit van Amsterdam.
+      </p>
+      <p>
+        <a href="mailto:crow.tao@student.uva.nl">crow.tao@student.uva.nl</a>
+      </p>
+    </section>
+
+    <section class="widget" aria-labelledby="w-recent">
+      <h2 class="widget__title" id="w-recent">Recent posts</h2>
+      <ul>
+        {% for post in site.posts limit: 8 %}
+        <li><a href="{{ post.url }}">{{ post.title }}</a></li>
+        {% endfor %}
+      </ul>
+    </section>
+
+    <section class="widget" aria-labelledby="w-archives">
+      <h2 class="widget__title" id="w-archives">Archives</h2>
+      <ul>
+        {% assign by_year = site.posts | group_by_exp: "post", "post.date | date: '%Y'" %}
+        {% for year in by_year %}
+        <li><span class="muted">{{ year.name }} ({{ year.items | size }})</span></li>
+        {% endfor %}
+      </ul>
+    </section>
+
+    <section class="widget" aria-labelledby="w-elsewhere">
+      <h2 class="widget__title" id="w-elsewhere">Elsewhere</h2>
+      <ul>
+        <li><a href="/physics.html">Physics — CV &amp; research</a></li>
+        <li><a href="/photography.html">Photography</a></li>
+        <li><a href="/feed.xml">Subscribe (RSS)</a></li>
+        <li><a href="/assets/img/profile/000046.jpg">him dreaming</a></li>
+        <li><a href="/assets/img/profile/%E6%BC%82%E4%BA%AE%E5%AF%B9%E7%84%A6.jpg">me in the past</a></li>
+      </ul>
+    </section>
+  </aside>
+</div>

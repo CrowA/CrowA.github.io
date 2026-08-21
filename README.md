@@ -26,56 +26,84 @@ index.html         Home: opening shuffle, then ONE screen — the blue
                    self-intro (name in EB Garamond, two guide links)
 photography.html   Photography index
 physics.html       Academic CV (research, education, projects, talks)
-about.html         Bio, portrait, facts, contact
-css/style.css      All styling (design tokens at the top)
-js/main.js         Mobile nav, scroll reveals, hero wave canvas
-js/gallery.js      Series filters + lightbox
-assets/fonts/      Self-hosted woff2 (Space Grotesk, IBM Plex Mono — both OFL licensed)
-assets/img/        PLACEHOLDER artwork — replace with your photographs
+blog/              Blog ("Field Notes") — a real Jekyll blog, see below
+_posts/            Blog posts, one Markdown file each
+_layouts/          Jekyll layouts for the blog (blog.html, post.html)
+_config.yml        Jekyll config (blog title, permalinks, RSS feed)
+photography-*.html Eight numbered galleries (i … viii)
+css/style.css      Site styling (design tokens at the top)
+css/blog.css       Blog styling
+js/main.js         Nav, reveals, opening animation, hero dot canvas
+assets/fonts/      Self-hosted fonts (Space Grotesk, IBM Plex Mono,
+                   EB Garamond, Latin Modern — all freely licensed)
+assets/img/        Images, organised by USE — see the map below
 ```
 
-## Make it yours (checklist)
+## Image folders — where to put what
 
-Everything to replace is marked with `PLACEHOLDER` comments in the HTML.
+Every display slot on the site has its own folder. To change what a slot
+shows, change the files in its folder (and the matching `src`/`data-images`
+list if you add or remove files):
 
-1. **Name / wordmark** — the name appears in two casings: all-caps
-   "CROWTAO" in the nav wordmark of every page, and title-case "Crowtao"
-   in the footer copyright, the home hero subtitle, each nav link's
-   aria-label, and the `<title>`/meta tags. Search case-insensitively (or
-   search both forms) and keep each spot's casing when replacing.
-2. **Photos** — drop JPEGs into `assets/img/` and update the items in
-   `photography.html` (src, width/height, alt text, `data-title`,
-   `data-meta`, `data-series`). Export at ~2000 px on the long edge,
-   sRGB, quality ≈ 80. Keep the width/height attributes accurate — they
-   prevent layout shift. Also update the two count labels ("14
-   photographs / 03 series" in `photography.html`, "03 series / 14
-   photographs" on `index.html`) to match your final gallery.
-3. **Series** — the three sample series (Spectra / Terrain / Matter) are
-   defined by the filter buttons in `photography.html` and the cards on
-   `index.html`. Rename or add series by editing `data-filter` /
-   `data-series` values, and update the matching `#hash` in each
-   series-card `href` on `index.html` (e.g. `photography.html#spectra`) —
-   the gallery uses that hash to preselect the filter when arriving from
-   the home page.
-4. **Physics** — replace the sample publications and talks in
-   `physics.html` with your real ones; point links at arXiv/DOI pages and
-   the CV button at a real `assets/cv.pdf`.
-5. **About** — rewrite the bio, replace `assets/img/portrait.svg`, and
-   edit the fact list.
-6. **Contact** — the email is set to crowtao2020@gmail.com in three places
-   (home, physics, about). Note: a plain-text email on a public site
-   attracts some spam; consider a dedicated address.
-7. **Social links** — the footer "Elsewhere" links are `#` placeholders.
-8. **Colors** — the palette lives as CSS custom properties at the top of
-   `css/style.css` (`--blue` plus `--blue-bright`, its lighter partner
-   used for hover text on dark backgrounds). Two copies of the blue are
-   hardcoded and must be updated by hand: the `theme-color` meta in
-   `index.html` and the background fill in `assets/favicon.svg` (a
-   favicon cannot read CSS variables). Regenerate the PNG icons after
-   editing the SVG.
-9. **Share previews** — each page head has a commented-out `og:url` /
-   `og:image` block; fill in your real domain after deploying so links
-   shared in chat apps show the `assets/img/og.jpg` card.
+```
+assets/img/
+  intro/               Opening-animation photos. The play order lives in
+                       the data-images attribute in index.html (the same
+                       list is used by the experiment pages).
+  photography/
+    covers/i.jpg …     The photo each Roman numeral shows on hover on
+    covers/viii.jpg    photography.html. One file per numeral, named
+                       after it — to change a cover, replace the file.
+    i/ … viii/         The photos INSIDE each numbered gallery page
+                       (photography-i.html … photography-viii.html).
+  profile/             Personal photos ("him dreaming", "me in the past")
+                       linked from the physics page and the blog sidebar.
+  site/                Site graphics: og.jpg (share preview) and the
+                       generated interference-dot backgrounds used by the
+                       experiment pages.
+  placeholders/        The original starter SVG artwork. Only
+                       home-sections-backup.html still references it.
+  originals/           Your TIFF scans (49 MB each). Git-ignored — they
+                       never upload; keep them here as the local archive.
+```
+
+A photo used in two places (e.g. in the intro AND in gallery i) exists as
+a copy in both folders on purpose: each slot is managed only by its own
+folder.
+
+## Blog ("Field Notes")
+
+The blog is a proper Jekyll blog (the engine GitHub Pages runs natively —
+the same idea as a WordPress blog like wall.org/~aron, but static). To
+publish a post, create a Markdown file in `_posts/` named
+`YYYY-MM-DD-slug.md`:
+
+```markdown
+---
+layout: post
+title: My post title
+---
+
+Write the post here in Markdown.
+```
+
+Push it, and GitHub Pages builds everything automatically: the post page at
+`/blog/slug/`, the listing at `/blog/` (newest first, with the About /
+Recent posts / Archives sidebar), and the RSS feed at `/feed.xml`. Nothing
+else to maintain by hand.
+
+To preview locally WITH the blog rendered, run:
+
+```bash
+./preview.sh
+```
+
+and open http://localhost:8001 — it builds and serves the whole site
+(Jekyll is installed via Homebrew Ruby; the script sets up PATH and locale,
+and rebuilds automatically when files change). `python3 -m http.server`
+still works for everything except `/blog/`. Either way the blog builds on
+GitHub's side on push: check the repo's Actions tab for the green
+"pages build and deployment" run.
 
 ## Experiments
 

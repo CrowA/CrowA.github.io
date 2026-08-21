@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% if page.title %}{{ page.title }} — {% endif %}{{ site.title }}</title>
+  <meta name="description" content="{{ page.excerpt | default: site.description | strip_html | strip_newlines | truncate: 160 }}">
+  <meta name="theme-color" content="#ffffff">
+  <meta property="og:title" content="{% if page.title %}{{ page.title }} — {% endif %}{{ site.title }}">
+  <meta property="og:description" content="{{ site.description }}">
+  <meta property="og:type" content="{% if page.layout == 'post' %}article{% else %}website{% endif %}">
+  <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png">
+  <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/blog.css">
+  {% feed_meta %}
+  <noscript>
+    <style>
+      .reveal, .line-mask > .line-in { opacity: 1 !important; transform: none !important; }
+    </style>
+  </noscript>
+</head>
+<body class="theme-paper blog-page">
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="nav">
+    <nav aria-label="Main">
+      <ul class="nav__links">
+        <li><a href="/physics.html">Physics</a></li>
+        <li><a href="/photography.html">Photography</a></li>
+        <li><a href="/blog/" aria-current="page">Blog</a></li>
+      </ul>
+    </nav>
+    <button class="nav__toggle" aria-expanded="false" aria-controls="nav-overlay">Menu</button>
+  </header>
+
+  <div class="nav-overlay" id="nav-overlay">
+    <nav aria-label="Mobile">
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/physics.html">Physics</a></li>
+        <li><a href="/photography.html">Photography</a></li>
+        <li><a href="/blog/" aria-current="page">Blog</a></li>
+      </ul>
+    </nav>
+    <p class="micro">Photography &amp; Physics</p>
+  </div>
+
+  <div class="blog-wrap">
+    <header class="blog-head">
+      <h1 class="blog-head__title"><a href="/blog/">{{ site.title }}</a></h1>
+      <p class="blog-head__tagline">{{ site.description }}</p>
+    </header>
+
+    {{ content }}
+
+    <footer class="blog-foot">
+      © <span data-year>2026</span> {{ site.author }} — {{ site.title }} ·
+      <a href="/feed.xml">RSS</a>
+    </footer>
+  </div>
+
+  <script src="/js/main.js"></script>
+</body>
+</html>

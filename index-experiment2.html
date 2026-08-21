@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Crow (Ming) Tao</title>
+  <title>Crowtao — 实验 2 (Intro → Physics)</title>
+  <meta name="robots" content="noindex">
   <meta name="description" content="Academic profile, research interests, education, projects, talks and technical skills of Crow (Ming) Tao.">
   <meta name="theme-color" content="#ffffff">
   <meta property="og:title" content="Crow (Ming) Tao">
@@ -533,11 +534,25 @@
   </style>
   <noscript>
     <style>
+      .intro { display: none; }
       .reveal, .line-mask > .line-in { opacity: 1 !important; transform: none !important; }
     </style>
   </noscript>
 </head>
 <body class="theme-paper physics-minimal">
+  <!-- Opening animation: same shuffle as the home page; when it finishes,
+       the page beneath is the plain white physics CV (no hero). -->
+  <div class="intro" aria-hidden="true"
+       data-images="assets/img/intro/MFLX-13.jpg, assets/img/intro/MFLX-15.jpg, assets/img/intro/MFLX-17.jpg, assets/img/intro/MFLX-18.jpg, assets/img/intro/MFLX-36527.jpg, assets/img/intro/MFLX-36538.jpg, assets/img/intro/MFLX-36539.jpg, assets/img/intro/Last 2.jpg, assets/img/intro/Last.png">
+    <div class="intro__card">
+      <img class="intro__img" src="assets/img/intro/MFLX-13.jpg" alt="">
+      <span class="intro__counter micro">[00]</span>
+    </div>
+    <div class="intro__patch"></div>
+  </div>
+
+  <a href="index.html" style="position:fixed;bottom:1rem;left:1rem;z-index:400;background:#1512e6;color:#fff;padding:0.55rem 1rem;border-radius:999px;font-family:'IBM Plex Mono',monospace;font-size:0.72rem;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;text-decoration:none;">实验 2 · 回首页 →</a>
+
   <a class="skip-link" href="#main">Skip to content</a>
 
   <header class="nav">
@@ -545,7 +560,7 @@
       <ul class="nav__links">
         <li><a href="physics.html" aria-current="page">Physics</a></li>
         <li><a href="photography.html">Photography</a></li>
-        <li><a href="/blog/">Blog</a></li>
+        <li><a href="about.html">About</a></li>
       </ul>
     </nav>
     <button class="nav__toggle" aria-expanded="false" aria-controls="nav-overlay">Menu</button>
@@ -557,7 +572,7 @@
         <li><a href="index.html">Home</a></li>
         <li><a href="physics.html" aria-current="page">Physics</a></li>
         <li><a href="photography.html">Photography</a></li>
-        <li><a href="/blog/">Blog</a></li>
+        <li><a href="about.html">About</a></li>
       </ul>
     </nav>
     <p class="micro">Photography &amp; Physics</p>
@@ -687,7 +702,7 @@
           <li><a href="index.html">Home</a></li>
           <li><a href="photography.html">Photography</a></li>
           <li><a href="physics.html">Physics</a></li>
-          <li><a href="/blog/">Blog</a></li>
+          <li><a href="about.html">About</a></li>
         </ul>
       </div>
       <div class="footer__col">
