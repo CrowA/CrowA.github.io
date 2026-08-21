@@ -21,9 +21,11 @@ Then open http://localhost:8000.
 ## Structure
 
 ```
-index.html         Home: hero, selected series, statement, contact
-photography.html   Gallery with series filters + lightbox
-physics.html       Research statement, publications, talks, CV
+index.html         Home: opening shuffle, then ONE screen — the blue
+                   interference-dot canvas with a centred three-line
+                   self-intro (name in EB Garamond, two guide links)
+photography.html   Photography index
+physics.html       Academic CV (research, education, projects, talks)
 about.html         Bio, portrait, facts, contact
 css/style.css      All styling (design tokens at the top)
 js/main.js         Mobile nav, scroll reveals, hero wave canvas
@@ -75,15 +77,14 @@ Everything to replace is marked with `PLACEHOLDER` comments in the HTML.
    `og:image` block; fill in your real domain after deploying so links
    shared in chat apps show the `assets/img/og.jpg` card.
 
-## Photo strips (parallax interludes)
+## Experiments
 
-The home page alternates content with full-bleed photo strips
-(nabiliqbal.com-style): the background photograph moves slower than the
-page, so sections appear to slide over it. Each strip is a `.strip` section
-in `index.html` — swap the `img src` to change the photo, duplicate the
-section to add more interludes, or delete it to remove one. The tint
-overlay (`.strip__tint`) keeps text-adjacent strips cohesive; adjust its
-rgba in `css/style.css`.
+`intro-v1.html` / `intro-v2.html` (older opening animations) and
+`index-experiment*.html` (alternative homepage concepts: pinned curtain
+backgrounds, intro-straight-to-CV, partitioned CV screens) are kept as
+`noindex` comparison pages with their own isolated styles/scripts. Delete
+them freely once no longer wanted. The `.strip` parallax CSS/JS remains in
+`css/style.css` and `js/main.js` but no live page uses it.
 
 ## Deploy (free options)
 

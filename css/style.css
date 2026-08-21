@@ -24,6 +24,13 @@
   font-weight: 500;
   font-display: swap;
 }
+@font-face {
+  font-family: "EB Garamond";
+  src: url("../assets/fonts/EBGaramond-Variable.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 400 800;
+  font-display: swap;
+}
 
 /* ---------- Tokens ---------- */
 :root {
@@ -444,6 +451,50 @@ body.theme-paper {
   50% {
     transform: translateY(0.6rem);
   }
+}
+
+/* ---------- Single-screen hero: centred self-intro ----------
+   No display title — one quiet monospaced block, dead centre,
+   over the interference field. */
+.hero__intro {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  /* `translate` (not transform) so reveal animations can't override it */
+  translate: -50% -50%;
+  z-index: 2;
+  width: max-content;
+  max-width: calc(100vw - 2 * var(--gutter));
+  text-align: center;
+  /* the old Light/Matter/Time voice: white Space Grotesk */
+  font-family: var(--font-display);
+  color: var(--white);
+}
+.hero__intro-name {
+  font-family: "EB Garamond", Garamond, "Times New Roman", serif;
+  font-size: 1.5rem;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+}
+.hero__intro-name + .hero__intro-line {
+  margin-top: 2.4rem;
+}
+.hero__intro-line + .hero__intro-line {
+  margin-top: 0.9rem;
+}
+.hero__intro-line {
+  font-size: 0.92rem;
+  font-weight: 500;
+  line-height: 1.75;
+  letter-spacing: 0.01em;
+}
+.hero__intro-line a {
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.25em;
+}
+.hero__intro-line a:hover {
+  text-decoration: none;
 }
 
 /* ---------- Sections ---------- */
