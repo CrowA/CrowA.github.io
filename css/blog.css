@@ -1,0 +1,268 @@
+/* ============ Blog ("Field Notes") ============
+   Faithful skin of WordPress Twenty Twelve — the theme behind
+   wall.org/~aron/blog: light-grey page, centred white card (960px),
+   Open Sans, classic WP-blue links (#21759b), 20px normal-weight post
+   titles, 11px grey meta, bold uppercase widget titles. */
+
+body.blog-page {
+  background: #e6e6e6;
+  color: #444;
+  font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  line-height: 1.714;
+}
+
+/* --- one white card holds nav, header, content, footer --- */
+.blog-page .nav,
+.blog-wrap {
+  width: min(960px, 100%);
+  margin: 0 auto;
+  background: #fff;
+}
+.blog-wrap {
+  padding: 0 24px 24px;
+}
+
+/* --- site nav (kept from the main site, restyled small) --- */
+.blog-page .nav {
+  position: static;
+  padding: 20px 24px 0;
+  color: #444;
+  background: #fff !important;
+}
+.blog-page .nav__links {
+  gap: 18px;
+}
+.blog-page .nav__links a,
+.blog-page .nav__toggle {
+  padding: 0;
+  font-family: inherit;
+  font-size: 12px;
+  font-weight: 400;
+  letter-spacing: 0;
+  text-transform: none;
+  color: #5e5e5e;
+}
+.blog-page .nav__links a:hover {
+  color: #21759b;
+}
+.blog-page .nav__links a::after {
+  display: none;
+}
+.blog-page .nav__links a[aria-current="page"] {
+  color: #000;
+  font-weight: 700;
+}
+.blog-page .nav-overlay {
+  background: #fff;
+  color: #444;
+  font-family: inherit;
+}
+.blog-page .nav-overlay a {
+  font-weight: 400;
+}
+.blog-page .nav-overlay .micro {
+  font-family: inherit;
+  letter-spacing: 0;
+  text-transform: none;
+}
+.blog-page.menu-open .nav {
+  color: #444 !important;
+}
+
+/* --- site header: blog title + tagline, Twenty Twelve style --- */
+.blog-head {
+  padding: 24px 0;
+  border-bottom: 1px solid #ededed;
+}
+.blog-head__title {
+  font-size: 26px;
+  font-weight: 400;
+  line-height: 1.2;
+  letter-spacing: 0;
+}
+.blog-head__title a {
+  color: #515151;
+  text-decoration: none;
+}
+.blog-head__title a:hover {
+  color: #21759b;
+}
+.blog-head__tagline {
+  margin-top: 2px;
+  color: #757575;
+  font-size: 13px;
+  font-style: normal;
+}
+
+/* --- two columns: posts + sidebar (Twenty Twelve proportions) --- */
+.blog-cols {
+  display: grid;
+  grid-template-columns: minmax(0, 65.1%) minmax(0, 26.4%);
+  justify-content: space-between;
+  padding: 24px 0 48px;
+}
+@media (max-width: 860px) {
+  .blog-cols {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+}
+
+/* --- single post pages --- */
+.blog-single {
+  max-width: 625px;
+  padding: 24px 0 48px;
+}
+.blog-single .post {
+  max-width: none;
+}
+.blog-back {
+  display: inline-block;
+  margin-bottom: 24px;
+  color: #757575;
+  font-size: 11px;
+  text-decoration: none;
+}
+.blog-back:hover {
+  color: #21759b;
+}
+
+/* --- posts --- */
+.post {
+  max-width: 625px;
+}
+.post + .post {
+  margin-top: 48px;
+  padding-top: 48px;
+  border-top: 1px solid #ededed;
+}
+.post__title {
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 1.2;
+}
+.post__title a {
+  color: #21759b;
+  text-decoration: none;
+}
+.post__title a:hover {
+  color: #0f3647;
+  text-decoration: underline;
+}
+.post__meta {
+  margin-top: 4px;
+  color: #757575;
+  font-size: 11px;
+  line-height: 2.18;
+  font-style: normal;
+}
+.post__content {
+  margin-top: 16px;
+}
+.post__content p + p {
+  margin-top: 14px;
+}
+.post__content a {
+  color: #21759b;
+  text-decoration: none;
+}
+.post__content a:hover {
+  text-decoration: underline;
+}
+.post__content h2,
+.post__content h3 {
+  margin: 24px 0 10px;
+  font-weight: 700;
+  color: #333;
+}
+.post__content h2 {
+  font-size: 16px;
+}
+.post__content h3 {
+  font-size: 14px;
+}
+.post__content blockquote {
+  margin: 16px 0 16px 24px;
+  color: #6a6a6a;
+  font-style: italic;
+}
+.post__content ul,
+.post__content ol {
+  margin: 14px 0 14px 24px;
+}
+.post__content img {
+  max-width: 100%;
+  height: auto;
+  margin: 16px 0;
+}
+.post__content code {
+  font-family: Consolas, Monaco, monospace;
+  font-size: 13px;
+}
+.post__content pre {
+  margin: 16px 0;
+  padding: 12px;
+  overflow-x: auto;
+  background: #f4f4f4;
+  border: 1px solid #ededed;
+  font-size: 13px;
+}
+
+/* --- sidebar widgets, Twenty Twelve style --- */
+.widget + .widget {
+  margin-top: 48px;
+}
+.widget__title {
+  margin-bottom: 8px;
+  font-size: 11px;
+  font-weight: 700;
+  font-variant-caps: normal;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #636363;
+}
+.widget {
+  font-size: 13px;
+  line-height: 1.846;
+}
+.widget p + p {
+  margin-top: 10px;
+}
+.widget ul {
+  list-style: none;
+  padding: 0;
+}
+.widget li {
+  margin: 0;
+  line-height: 2.18;
+}
+.widget li + li {
+  margin-top: 0;
+}
+.widget a {
+  color: #21759b;
+  text-decoration: none;
+}
+.widget a:hover {
+  text-decoration: underline;
+}
+.widget .muted {
+  color: #757575;
+}
+
+/* --- footer --- */
+.blog-foot {
+  padding: 24px 0 0;
+  border-top: 1px solid #ededed;
+  color: #686868;
+  font-size: 11px;
+  text-align: center;
+}
+.blog-foot a {
+  color: #686868;
+  text-decoration: none;
+}
+.blog-foot a:hover {
+  color: #21759b;
+}

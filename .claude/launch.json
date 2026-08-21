@@ -1,0 +1,18 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "site",
+      "runtimeExecutable": "sh",
+      "runtimeArgs": ["preview.sh"],
+      "port": 8000
+    },
+    {
+      "name": "jt-gravity",
+      "runtimeExecutable": "sh",
+      "runtimeArgs": ["-c", "exec python3 -m http.server ${PORT:-8341} --directory '/Users/arpriestc/Simulation/jt-gravity'"],
+      "port": 8341,
+      "autoPort": true
+    }
+  ]
+}

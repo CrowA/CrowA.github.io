@@ -1,14 +1,4 @@
+_site/
+.jekyll-cache/
 .DS_Store
-**/.DS_Store
-.claude/
-
-# Keep full-resolution originals local; the site uses JPEG exports.
-assets/img/*.tif
-
-# Local experiments and backups are not part of the published site.
-home-sections-backup.html
-index-experiment*.html
-intro-v1.html
-intro-v2.html
-js/main-v1.js
-js/main-v2.js
+assets/img/originals/

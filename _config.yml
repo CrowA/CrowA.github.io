@@ -1,0 +1,27 @@
+# Jekyll configuration — GitHub Pages builds this automatically on push.
+# The hand-built pages (index.html, physics.html, photography*.html …)
+# have no front matter, so Jekyll copies them through untouched.
+
+title: Field Notes
+description: notes on physics, photography, and everything between
+url: "https://crowa.github.io"
+author: Crow (Ming) Tao
+timezone: Europe/Amsterdam
+
+# Posts live under /blog/<slug>/
+permalink: /blog/:title/
+
+markdown: kramdown
+plugins:
+  - jekyll-feed
+
+# RSS feed for the blog (a proper blog has one)
+feed:
+  path: feed.xml
+
+exclude:
+  - README.md
+  - home-sections-backup.html
+  - Gemfile
+  - Gemfile.lock
+  - vendor

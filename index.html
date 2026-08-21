@@ -4,14 +4,14 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Crowtao — Photography &amp; Physics</title>
-  <meta name="description" content="Personal site of Crowtao — photographer and physicist. Photographic series, research and publications.">
+  <meta name="description" content="Crow (Ming) Tao — photographer and physicist. Physics one way, photography the other.">
   <meta name="theme-color" content="#1512e6">
   <meta property="og:title" content="Crowtao — Photography &amp; Physics">
-  <meta property="og:description" content="Photographic series, research and publications.">
+  <meta property="og:description" content="Crow (Ming) Tao — photographer and physicist.">
   <meta property="og:type" content="website">
   <!-- PLACEHOLDER: after deploying, set your real domain and uncomment -->
   <!-- <meta property="og:url" content="https://your-domain.com/">
-       <meta property="og:image" content="https://your-domain.com/assets/img/og.jpg">
+       <meta property="og:image" content="https://your-domain.com/assets/img/site/og.jpg">
        <meta property="og:image:width" content="1200">
        <meta property="og:image:height" content="630">
        <meta name="twitter:card" content="summary_large_image"> -->
@@ -20,183 +20,6 @@
   <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
   <link rel="preload" href="assets/fonts/SpaceGrotesk-var.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="css/style.css">
-  <style>
-    /* ============ Physics section embedded below the hero ============
-       Mirrors the academic styling of physics.html, scoped to the
-       .physics-embed section so the hero above stays untouched. */
-    @font-face {
-      font-family: "EB Garamond";
-      src: url("assets/fonts/EBGaramond-Variable.ttf") format("truetype");
-      font-style: normal;
-      font-weight: 400 800;
-      font-display: swap;
-    }
-    @font-face {
-      font-family: "EB Garamond";
-      src: url("assets/fonts/EBGaramond-Italic-Variable.ttf") format("truetype");
-      font-style: italic;
-      font-weight: 400 800;
-      font-display: swap;
-    }
-    @font-face {
-      font-family: "Latin Modern Mono";
-      src: url("assets/fonts/LMMono10-Regular.otf") format("opentype");
-      font-style: normal;
-      font-weight: 400;
-      font-display: swap;
-    }
-    @font-face {
-      font-family: "Latin Modern Math";
-      src: url("assets/fonts/LatinModernMath-Regular.otf") format("opentype");
-      font-style: normal;
-      font-weight: 400;
-      font-display: swap;
-    }
-
-    .physics-embed {
-      background: #fff;
-      color: #111;
-      font-family: "EB Garamond", Garamond, "Times New Roman", serif;
-      font-size: 1.075rem;
-      font-weight: 400;
-      line-height: 1.52;
-      font-kerning: normal;
-      font-optical-sizing: auto;
-      text-rendering: optimizeLegibility;
-      padding: clamp(5rem, 12vh, 7.5rem) 0;
-    }
-    .physics-embed__inner {
-      width: min(620px, calc(100% - 2.5rem));
-      margin: 0 auto;
-    }
-    .physics-embed .micro {
-      font-family: inherit;
-      font-size: 0.9rem;
-      font-weight: 400;
-      letter-spacing: 0;
-      text-transform: none;
-    }
-    .physics-embed .page-head {
-      padding: 0;
-      margin-bottom: 3rem;
-    }
-    .physics-embed .page-head__title {
-      font-size: clamp(2rem, 7vw, 2.55rem);
-      font-weight: 400;
-      line-height: 1.1;
-      letter-spacing: 0;
-      text-transform: none;
-    }
-    .physics-embed .profile-affiliation {
-      margin-top: 1rem;
-    }
-    .physics-embed .profile-contact {
-      margin-top: 1rem;
-      font-size: 0.94em;
-    }
-    .physics-embed .profile-photo-links {
-      margin-top: 1rem;
-    }
-    .physics-embed .profile-contact a,
-    .physics-embed .cv-page a {
-      color: #173d67;
-      font-weight: 400;
-      text-decoration: underline;
-      text-decoration-thickness: 1px;
-      text-underline-offset: 0.15em;
-    }
-    .physics-embed .profile-contact a:hover,
-    .physics-embed .cv-page a:hover {
-      text-decoration: none;
-    }
-    .physics-embed .cv-section {
-      margin-bottom: 2.75rem;
-    }
-    .physics-embed .cv-section:last-child {
-      margin-bottom: 0;
-    }
-    .physics-embed .cv-section h3 {
-      margin-bottom: 0.9rem;
-      font-size: 1.28rem;
-      font-weight: 400;
-      font-variant-caps: small-caps;
-      letter-spacing: 0.045em;
-      line-height: 1.35;
-    }
-    .physics-embed .cv-section p + p {
-      margin-top: 0.8rem;
-    }
-    .physics-embed .cv-list {
-      padding-left: 1.25rem;
-    }
-    .physics-embed .cv-list > li + li {
-      margin-top: 1.5rem;
-    }
-    .physics-embed .cv-entry__title {
-      font-weight: 600;
-    }
-    .physics-embed .cv-entry__date {
-      margin-left: 0.35rem;
-      color: #666;
-      font-size: 0.74rem;
-      white-space: nowrap;
-    }
-    .physics-embed .cv-entry__tags {
-      color: #555;
-      margin-top: 0.15rem;
-      font-size: 0.74rem;
-      font-style: italic;
-      font-variant-caps: small-caps;
-      letter-spacing: 0.045em;
-      text-align: right;
-    }
-    .physics-embed .cv-entry__detail {
-      margin-top: 0.35rem;
-      font-size: 0.9em;
-      line-height: 1.48;
-    }
-    .physics-embed .cv-entry__detail p + p {
-      margin-top: 0.4rem;
-    }
-    .physics-embed .cv-label {
-      font-weight: 400;
-      font-variant-caps: small-caps;
-      letter-spacing: 0.025em;
-    }
-    .physics-embed .cv-smallcaps,
-    .physics-embed .cv-workshop__name {
-      font-variant-caps: small-caps;
-      letter-spacing: 0.025em;
-    }
-    .physics-embed .cv-workshop__name {
-      font-weight: 400;
-    }
-    .physics-embed .cv-entry__description {
-      font-style: italic;
-    }
-    .physics-embed .cv-note {
-      font-size: 0.88em;
-    }
-    .physics-embed .cv-mono {
-      font-family: "Latin Modern Mono", "Courier New", monospace;
-      font-size: 0.84em;
-      font-style: normal;
-      letter-spacing: 0;
-    }
-    .physics-embed .cv-math {
-      font-family: "Latin Modern Math", "STIX Two Math", "Cambria Math", serif;
-      font-size: 0.96em;
-    }
-    @media (max-width: 560px) {
-      .physics-embed {
-        font-size: 1.025rem;
-      }
-      .physics-embed .cv-entry__date {
-        display: block;
-        margin: 0.15rem 0 0;
-      }
-    }
-  </style>
   <noscript>
     <style>
       .intro { display: none; }
@@ -207,7 +30,7 @@
 <body>
   <!-- Opening animation: fast shuffle through the photographs, then the
        last two entries hold longer (the final one longest, widening to
-       16:9) before everything scatters outward.
+       16:9) before the card turns pure blue and expands into the page.
        Edit data-images to change photos (order = shuffle order).
        Optional "|40%" after a path shifts the crop focus horizontally. -->
   <div class="intro" aria-hidden="true"
@@ -226,7 +49,7 @@
       <ul class="nav__links">
         <li><a href="physics.html">Physics</a></li>
         <li><a href="photography.html">Photography</a></li>
-        <li><a href="about.html">About</a></li>
+        <li><a href="/blog/">Blog</a></li>
       </ul>
     </nav>
     <button class="nav__toggle" aria-expanded="false" aria-controls="nav-overlay">Menu</button>
@@ -238,201 +61,31 @@
         <li><a href="index.html" aria-current="page">Home</a></li>
         <li><a href="physics.html">Physics</a></li>
         <li><a href="photography.html">Photography</a></li>
-        <li><a href="about.html">About</a></li>
+        <li><a href="/blog/">Blog</a></li>
       </ul>
     </nav>
     <p class="micro">Photography &amp; Physics</p>
   </div>
 
   <main id="main">
-    <!-- ============ HERO ============ -->
+    <!-- ============ THE ONE SCREEN ============
+         Blue interference-dot canvas, SPACE/TIME type, and a minimal
+         self-introduction with the two ways into the site. -->
     <section class="hero">
       <canvas class="hero__canvas" aria-hidden="true"></canvas>
-      <div class="hero__corners micro" aria-hidden="true">
-        <span class="hero__corner-tl">Photographer<br>&amp; Physicist</span>
-        <span class="hero__corner-tr">Field notes in<br>light &amp; matter</span>
-      </div>
-      <div class="hero__inner">
-        <h1 class="hero__title">
-          <span class="line-mask"><span class="line-in" style="--reveal-delay:0s">Light,</span></span>
-          <span class="line-mask"><span class="line-in" style="--reveal-delay:0.08s">Matter</span></span>
-          <span class="line-mask"><span class="line-in" style="--reveal-delay:0.16s">&amp; Time</span></span>
+      <div class="hero__intro">
+        <h1 class="hero__intro-name">
+          <span class="line-mask"><span class="line-in" style="--reveal-delay:0s">Crow (Ming) Tao</span></span>
         </h1>
-        <p class="hero__sub reveal" style="--reveal-delay:0.3s">
-          Crowtao — photographer and physicist.
-          Two instruments, one attempt to understand the world.
+        <p class="hero__intro-line">
+          <span class="line-mask"><span class="line-in" style="--reveal-delay:0.12s">If you want to know my work / experience / interest in physics, click: <a href="physics.html">physics</a></span></span>
+        </p>
+        <p class="hero__intro-line">
+          <span class="line-mask"><span class="line-in" style="--reveal-delay:0.2s">If you want to know me in life, click: <a href="photography.html">photography</a></span></span>
         </p>
       </div>
-      <span class="hero__scroll micro" aria-hidden="true">Scroll</span>
-    </section>
-
-    <!-- ============ PHOTO STRIP I (parallax interlude) ============ -->
-    <section class="strip" aria-label="Photograph">
-      <img class="strip__bg" src="assets/img/intro/MFLX-36527.jpg" alt="Black-and-white street scene in Sendai: three people waiting at a bus stop" loading="lazy">
-      <div class="strip__tint" aria-hidden="true"></div>
-    </section>
-
-    <!-- ============ PHYSICS (merged from physics.html) ============
-         The old Selected series / Statement / Contact sections are
-         preserved in home-sections-backup.html. -->
-    <section class="physics-embed" id="physics" aria-label="Physics">
-      <div class="physics-embed__inner cv-page">
-        <header class="page-head">
-          <h2 class="page-head__title">Crow (Ming) Tao</h2>
-          <p class="profile-affiliation">Universiteit van Amsterdam</p>
-          <p class="profile-contact">
-            <span class="cv-label">Email address:</span>
-            <a href="mailto:crow.tao@student.uva.nl">crow.tao@student.uva.nl</a>
-            (<a href="mailto:crowtao2020@gmail.com">crowtao2020@gmail.com</a>)
-          </p>
-          <p class="profile-photo-links"><a href="assets/img/My%20photo/000046.jpg">him dreaming</a> and <a href="assets/img/My%20photo/%E6%BC%82%E4%BA%AE%E5%AF%B9%E7%84%A6.jpg">me in the past</a></p>
-        </header>
-
-        <section class="cv-section" aria-labelledby="interests-title">
-          <h3 id="interests-title">General Research Interest</h3>
-          <p>
-            Quantum gravity (<em>holography / black holes / cosmology / quantum gravity in the lab</em>);
-            quantum chaos and many-body dynamics; quantum information and computation
-            (<em>complexity / full stack / simulation / resource theory</em>); generalized symmetry.
-          </p>
-          <p>
-            Machine-learning theory (<em>framework as field theory / learning theory / optimization / diffusion models</em>).
-          </p>
-          <p>
-            Economics and finance (<em>in terms of complex systems / phase transitions</em>).
-          </p>
-        </section>
-
-        <section class="cv-section" aria-labelledby="education-title">
-          <h3 id="education-title">Education</h3>
-          <ul class="cv-list">
-            <li>
-              <span class="cv-entry__title"><span class="cv-smallcaps">Master</span> in Theoretical Physics, Universiteit van Amsterdam</span>
-              <span class="cv-entry__date">Sep. 2024–present</span>
-              <div class="cv-entry__detail cv-note"><em>In progress.</em></div>
-            </li>
-            <li>
-              <span class="cv-entry__title"><span class="cv-smallcaps">Bachelor</span> in Mathematics and Physics, University of Edinburgh</span>
-              <span class="cv-entry__date">2020–2024</span>
-              <div class="cv-entry__detail cv-note">
-                <p><em>First-Class Honors</em></p>
-                <p><em>Prize, EGUMS Scholarship funding</em></p>
-              </div>
-            </li>
-          </ul>
-        </section>
-
-        <section class="cv-section" aria-labelledby="projects-title">
-          <h3 id="projects-title">Research and Projects</h3>
-          <ul class="cv-list">
-            <li>
-              <span class="cv-entry__title">Gravity, Quantum Chaos, Matrix Model</span>
-              <span class="cv-entry__date">Sep. 2025–present</span>
-              <p class="cv-entry__tags">Unitary design, holography, random matrix theory</p>
-              <div class="cv-entry__detail">
-                <p><span class="cv-label">Advisor:</span> Prof. Diego Hofman, University of Amsterdam</p>
-                <p><span class="cv-label">Second:</span> Prof. Michael Walter, LMU Munich</p>
-                <p class="cv-entry__description">We follow up on the discussion of interpreting GUE as the universal effective action describing the symmetry-broken phase of a system with global <span class="cv-math">U(1)</span> symmetry and attempt to provide a unified theory of scrambling, hydrodynamics, thermalization, and RMT universality. Understanding ensemble averaging in holography.</p>
-              </div>
-            </li>
-            <li>
-              <span class="cv-entry__title">SYK Model Simulation on NISQ Hardware</span>
-              <span class="cv-entry__date">Oct. 2025–present</span>
-              <p class="cv-entry__tags">NISQ, SYK model, quantum simulation</p>
-              <div class="cv-entry__detail">
-                <p><span class="cv-label">Advisor:</span> Prof. Kareljan Schoutens, University of Amsterdam</p>
-                <p class="cv-entry__description">This is a group project. Based on the work of M. Asaduzzaman et al., we simulate the SYK model on the Quantum Inspire Starmon-7 and Quantinuum H2 emulator and hardware. In the ongoing process, we test the effects of sparsification and deformed potential.</p>
-              </div>
-            </li>
-            <li>
-              <span class="cv-entry__title">Geometric Deep Learning</span>
-              <span class="cv-entry__date">Apr.–May 2025</span>
-              <p class="cv-entry__tags">Machine learning, symmetry, representation and group theory</p>
-              <div class="cv-entry__detail">
-                <p><span class="cv-label">Advisor:</span> Prof. Christoph Weniger, University of Amsterdam</p>
-                <p class="cv-entry__description">This is a group project. We explored equivariant neural networks, incorporated additional symmetries such as 3D rotations <span class="cv-math">SO(3)</span> and roto-translations <span class="cv-math">SE(3)</span> into neural networks beyond CNN, and applied the method to Galaxy10 DECaLS data.</p>
-              </div>
-            </li>
-            <li>
-              <span class="cv-entry__title">On Higher Category Theory, the Cobordism Hypothesis, and TQFTs</span>
-              <span class="cv-entry__date">Jan.–May 2024</span>
-              <p class="cv-entry__tags">Category theory, TQFT, mathematical physics</p>
-              <div class="cv-entry__detail">
-                <p><span class="cv-label">Advisor:</span> Prof. Clark Barwick, University of Edinburgh</p>
-                <p class="cv-entry__description">We try to present a coherent extraction of logic for building up topological quantum field theory and the cobordism hypothesis through various examples, including Chern–Simons theory, Yang–Mills TQFT, and Dijkgraaf–Witten theory. In particular, we try to develop the model of <span class="cv-math">(∞, n)</span>-category as a complete Segal space.</p>
-              </div>
-            </li>
-            <li>
-              <span class="cv-entry__title">Classical Information and Communication Theory</span>
-              <span class="cv-entry__date">Sep. 2022–May 2023</span>
-              <p class="cv-entry__tags">Category theory, classical information theory, quantum information theory</p>
-              <div class="cv-entry__detail">
-                <p><span class="cv-label">Advisor:</span> Prof. Tom Leinster, University of Edinburgh</p>
-                <p class="cv-entry__description">This is my Bachelor group project. We provided a comprehensive review of Shannon’s classical information theory, classical and quantum typicality, as well as the potential connection to machine learning and linguistics. In particular, we include a categorical construction of Shannon’s entropy through operad methods.</p>
-              </div>
-            </li>
-          </ul>
-        </section>
-
-        <section class="cv-section" aria-labelledby="talks-title">
-          <h3 id="talks-title">Workshop and Talks</h3>
-          <ul class="cv-list">
-            <li>
-              <span class="cv-workshop__name">Quantum Universe Attract Workshop</span>
-              <span class="cv-entry__date">23–25 Nov. 2025</span>
-              <div class="cv-entry__detail">Speaker of <em>“Gravity and Matrix Model,”</em> <em>Universität Hamburg / DESY</em></div>
-            </li>
-          </ul>
-        </section>
-
-        <section class="cv-section" aria-labelledby="skills-title">
-          <h3 id="skills-title">Technical Skills</h3>
-          <p><span class="cv-label">Languages:</span> <span class="cv-mono">Python</span>, <span class="cv-mono">English</span>, <span class="cv-mono">Mandarin</span>, <span class="cv-mono">Japanese</span></p>
-          <p><span class="cv-label">Software:</span> <span class="cv-mono">Qiskit</span>, <span class="cv-mono">Mathematica</span>, <span class="cv-mono">NumPy</span>, <span class="cv-mono">PyTorch</span></p>
-        </section>
-      </div>
-    </section>
-
-    <!-- ============ PHOTO STRIP II (parallax interlude) ============ -->
-    <section class="strip" aria-label="Photograph">
-      <img class="strip__bg" src="assets/img/intro/MFLX-17.jpg" alt="A red lamp glowing beside a portrait against a plain wall" loading="lazy">
-      <div class="strip__tint" aria-hidden="true"></div>
     </section>
   </main>
-
-  <footer class="footer">
-    <div class="footer__grid">
-      <div class="footer__col">
-        <p class="micro">Menu</p>
-        <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="photography.html">Photography</a></li>
-          <li><a href="physics.html">Physics</a></li>
-          <li><a href="about.html">About</a></li>
-        </ul>
-      </div>
-      <div class="footer__col">
-        <p class="micro">Elsewhere</p>
-        <ul>
-          <!-- PLACEHOLDER: point these at your real profiles or delete -->
-          <li><a href="#">Instagram</a></li>
-          <li><a href="#">arXiv</a></li>
-          <li><a href="#">GitHub</a></li>
-        </ul>
-      </div>
-      <div class="footer__col">
-        <p class="micro">Colophon</p>
-        <ul>
-          <li class="micro">Set in Space Grotesk &amp; IBM Plex Mono</li>
-          <li class="micro">Hand-built — no frameworks</li>
-        </ul>
-      </div>
-    </div>
-    <div class="footer__bottom micro">
-      <span>© <span data-year>2026</span> Crowtao</span>
-      <span>Photography &amp; Physics</span>
-    </div>
-  </footer>
 
   <script src="js/main.js"></script>
 </body>

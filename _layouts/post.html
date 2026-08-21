@@ -1,0 +1,15 @@
+---
+layout: blog
+---
+<main id="main" class="blog-single">
+  <a class="blog-back" href="/blog/">← {{ site.title }}</a>
+  <article class="post">
+    <header>
+      <h2 class="post__title">{{ page.title }}</h2>
+      <p class="post__meta">Posted on {{ page.date | date: "%B %-d, %Y" }} by {{ site.author }}</p>
+    </header>
+    <div class="post__content">
+      {{ content }}
+    </div>
+  </article>
+</main>
