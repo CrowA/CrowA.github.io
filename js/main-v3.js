@@ -1,4 +1,7 @@
-/* Shared behaviour: mobile nav, scroll reveals, hero interference canvas. */
+/* Intro V3 comparison page — same shared behaviour as main.js, but the
+   opening is the grow-from-centre pile (k95 boot-loader style): each photo
+   grows onto a centred stack, paced with the site's current beat sheet,
+   ending with the blue-card window expansion. Used only by intro-v3.html. */
 (function () {
   "use strict";
 
@@ -8,7 +11,6 @@
   var toggle = document.querySelector(".nav__toggle");
   var overlay = document.querySelector(".nav-overlay");
   if (toggle && overlay) {
-    /* inert keeps keyboard/screen-reader users inside the open menu. */
     var setMenu = function (open) {
       document.body.classList.toggle("menu-open", open);
       toggle.setAttribute("aria-expanded", open ? "true" : "false");
@@ -26,15 +28,12 @@
     });
     document.addEventListener("keydown", function (e) {
       if (e.key !== "Escape") return;
-      /* An open modal (lightbox) owns Escape; let it close first. */
       if (document.querySelector("dialog[open]")) return;
       if (document.body.classList.contains("menu-open")) {
         setMenu(false);
         toggle.focus();
       }
     });
-    /* Leaving mobile widths (e.g. phone rotation) force-closes the menu,
-       since the toggle that dismisses it stops being rendered. */
     var mobileMq = window.matchMedia("(max-width: 720px)");
     mobileMq.addEventListener("change", function (e) {
       if (!e.matches && document.body.classList.contains("menu-open")) {
@@ -51,37 +50,6 @@
     };
     window.addEventListener("scroll", onScroll, { passive: true });
     onScroll();
-  }
-
-  /* ---------- Photo-strip parallax ----------
-     Backgrounds move slower than the page, so content sections appear
-     to slide over near-stationary photographs. */
-  var strips = Array.prototype.slice.call(document.querySelectorAll(".strip"));
-  if (strips.length && !reduceMotion) {
-    var stripTicking = false;
-    var updateStrips = function () {
-      stripTicking = false;
-      var vh = window.innerHeight;
-      strips.forEach(function (strip) {
-        var r = strip.getBoundingClientRect();
-        if (r.bottom < 0 || r.top > vh) return;
-        var bg = strip.querySelector(".strip__bg");
-        if (!bg) return;
-        /* t: 0 when the strip enters from below, 1 when it leaves above. */
-        var t = (vh - r.top) / (vh + r.height);
-        var shift = (0.5 - t) * 0.36 * vh;
-        bg.style.transform = "translateY(" + shift.toFixed(1) + "px)";
-      });
-    };
-    var requestStrips = function () {
-      if (!stripTicking) {
-        stripTicking = true;
-        requestAnimationFrame(updateStrips);
-      }
-    };
-    window.addEventListener("scroll", requestStrips, { passive: true });
-    window.addEventListener("resize", requestStrips);
-    updateStrips();
   }
 
   /* ---------- Scroll reveals (started after the intro, if any) ---------- */
@@ -109,10 +77,7 @@
     });
   }
 
-  /* ---------- Opening: grow-from-centre pile (home only) ----------
-     Each photo grows from the middle outward onto a centred stack,
-     paced with long holds on the last two; the final frame widens to
-     16:9, then the blue card expands into the page. */
+  /* ---------- Intro V3: grow-from-centre pile ---------- */
   function runIntro(intro, done) {
     var entries = (intro.dataset.images || "")
       .split(",")
@@ -122,9 +87,9 @@
         var parts = item.split("|");
         return { src: parts[0].trim(), pos: (parts[1] || "50%").trim() };
       });
-    var stack = intro.querySelector(".intro__stack");
-    var counter = intro.querySelector(".intro__counter");
-    var patch = intro.querySelector(".intro__patch");
+    var stack = intro.querySelector(".introv3__stack");
+    var counter = intro.querySelector(".introv3__counter");
+    var patch = intro.querySelector(".introv3__patch");
     if (!entries.length || !stack || !counter || !patch) {
       intro.remove();
       done();
@@ -134,7 +99,7 @@
     var finished = false;
     var POP_MS = 340; /* each layer's centre-out growth */
 
-    /* Beat sheet: steady, then long holds on the last two. */
+    /* The site's beat sheet: steady, then long holds on the last two. */
     var beats = entries.map(function (_, i) {
       if (i === entries.length - 1) return 1750;
       if (i === entries.length - 2) return 950;
@@ -149,7 +114,7 @@
 
     function addLayer(src, pos, isFinal, instant) {
       var layer = document.createElement("div");
-      layer.className = "intro__layer" + (isFinal ? " intro__layer--final" : "");
+      layer.className = "introv3__layer" + (isFinal ? " introv3__layer--final" : "");
       if (src) {
         var im = document.createElement("img");
         im.src = src;
@@ -175,7 +140,7 @@
     }
 
     /* The final frame widens the whole pile to 16:9 (viewport-capped,
-       still centred). */
+       still centred) — same gesture as the live intro. */
     function widen() {
       var r = stack.getBoundingClientRect();
       var targetW = Math.min((r.height * 16) / 9, window.innerWidth * 0.92);
@@ -190,8 +155,6 @@
       stack.style.height = targetH + "px";
     }
 
-    /* Exit: the card turns pure blue, then becomes a window that
-       expands until it IS the page, while the pile blurs away. */
     function exit(instant) {
       if (finished) return;
       finished = true;
@@ -219,7 +182,7 @@
             patch.style.transition =
               "transform 0.85s cubic-bezier(0.22, 1, 0.36, 1)";
             patch.style.transform = "translateZ(0) scale(" + scale + ")";
-            done(); /* the page reveals through the opening window */
+            done();
             setTimeout(function () {
               intro.classList.add("is-fading");
             }, 350);
@@ -251,7 +214,6 @@
       else requestAnimationFrame(tick);
     }
     function begin() {
-      /* Preload everything, then run the fixed timeline. */
       var preloads = entries.map(function (e) {
         return new Promise(function (resolve) {
           var im = new Image();
@@ -268,7 +230,6 @@
         requestAnimationFrame(tick);
       });
     }
-    /* Opened in a background tab: hold the sequence until it is seen. */
     if (document.hidden) {
       document.addEventListener("visibilitychange", function onVis() {
         if (!document.hidden && !finished) {
@@ -281,7 +242,7 @@
     }
   }
 
-  var intro = document.querySelector(".intro");
+  var intro = document.querySelector(".introv3");
   if (intro && !reduceMotion) {
     runIntro(intro, startReveals);
   } else {
@@ -294,9 +255,7 @@
     el.textContent = new Date().getFullYear();
   });
 
-  /* ---------- Hero canvas: two-source interference field ----------
-     A quiet nod to physics: dots whose size follows the superposition
-     of two circular waves. One source drifts toward the pointer. */
+  /* ---------- Hero canvas: two-source interference field ---------- */
   var canvas = document.querySelector(".hero__canvas");
   if (!canvas) return;
 
@@ -313,7 +272,6 @@
   var start = performance.now();
 
   function resize() {
-    /* Re-read DPR: browser zoom and display moves change it after load. */
     dpr = Math.min(window.devicePixelRatio || 1, 2);
     var rect = canvas.getBoundingClientRect();
     width = rect.width;
@@ -336,16 +294,14 @@
     var ay = sourceA.y * height;
     var bx = sourceB.x * width;
     var by = sourceB.y * height;
-    var k = 0.045; /* spatial frequency */
-    var w = 1.6; /* temporal frequency */
+    var k = 0.045;
+    var w = 1.6;
 
     for (var y = spacing / 2; y < height; y += spacing) {
       for (var x = spacing / 2; x < width; x += spacing) {
         var da = Math.hypot(x - ax, y - ay);
         var db = Math.hypot(x - bx, y - by);
-        var amp =
-          Math.sin(da * k - t * w) + Math.sin(db * k - t * w);
-        /* amp in [-2, 2] -> radius */
+        var amp = Math.sin(da * k - t * w) + Math.sin(db * k - t * w);
         var r = Math.max(0, (amp + 2) / 4) * (spacing * 0.16) + 0.4;
         ctx.beginPath();
         ctx.arc(x, y, r, 0, Math.PI * 2);
@@ -371,7 +327,6 @@
     rafId = null;
   }
 
-  /* Animate only while the tab is visible AND the hero is on screen. */
   var tabVisible = !document.hidden;
   var onScreen = true;
   function sync() {
@@ -391,8 +346,6 @@
     if (reduceMotion) draw(performance.now());
   });
 
-  /* Catch window drags between displays of different pixel density,
-     which do not always fire a resize event. */
   function watchDpr() {
     var mq = matchMedia("(resolution: " + window.devicePixelRatio + "dppx)");
     mq.addEventListener(

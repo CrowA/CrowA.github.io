@@ -387,7 +387,8 @@
     }
 
     .physics-minimal .page-head__title {
-      font-size: clamp(2rem, 7vw, 2.55rem);
+      /* TeX: {\LARGE ...} ≈ 1.6 × body size */
+      font-size: 1.7rem;
       font-weight: 400;
       line-height: 1.1;
       letter-spacing: 0;
@@ -408,7 +409,8 @@
 
     .physics-minimal .profile-contact a,
     .physics-minimal .cv-page a {
-      color: #173d67;
+      /* TeX hyperref urlcolor=MidnightBlue (dvipsnames) */
+      color: #007091;
       font-weight: 400;
       text-decoration: underline;
       text-decoration-thickness: 1px;
@@ -528,6 +530,51 @@
       .physics-minimal .cv-entry__date {
         display: block;
         margin: 0.15rem 0 0;
+      }
+    }
+
+    /* ============ TeX-CV margin years (Compact Academic CV template) ====
+       \years{} puts dates in the LEFT margin as scriptsize text; the main
+       text column starts to their right. Reproduced with a grid gutter. */
+    .physics-minimal main {
+      padding-left: 6.2rem;
+    }
+    .physics-minimal .cv-list {
+      list-style: none;
+      padding-left: 0;
+    }
+    .physics-minimal .cv-list > li {
+      display: grid;
+      grid-template-columns: 5.4rem minmax(0, 1fr);
+      column-gap: 0.8rem;
+      margin-left: -6.2rem;
+    }
+    .physics-minimal .cv-list > li > * {
+      grid-column: 2;
+    }
+    .physics-minimal .cv-list > li > .cv-entry__date {
+      grid-column: 1;
+      grid-row: 1;
+      margin-left: 0;
+      font-size: 0.68rem; /* \scriptsize */
+      line-height: 2.2;   /* sit on the title's baseline */
+      color: #333;
+      white-space: normal;
+    }
+    .physics-minimal .cv-entry__detail {
+      font-size: 0.85em; /* \footnotesize */
+    }
+    @media (max-width: 640px) {
+      .physics-minimal main {
+        padding-left: 0;
+      }
+      .physics-minimal .cv-list > li {
+        display: block;
+        margin-left: 0;
+      }
+      .physics-minimal .cv-list > li > .cv-entry__date {
+        display: block;
+        margin: 0 0 0.1rem;
       }
     }
   </style>
