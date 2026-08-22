@@ -552,6 +552,9 @@
     .physics-minimal .cv-list > li > * {
       grid-column: 2;
     }
+    .physics-minimal .cv-list--tight > li + li {
+      margin-top: 0.2rem;
+    }
     .physics-minimal .cv-list > li > .cv-entry__date {
       grid-column: 1;
       grid-row: 1;
@@ -658,10 +661,10 @@
 
     <section class="cv-section" aria-labelledby="publication-title">
       <h2 id="publication-title">Publication</h2>
-      <p>Two manuscripts in preparation currently. Check back soon for updates:)</p>
-      <ul class="cv-list">
-        <li><span class="cv-entry__title">Global Symmetry in Cosmology</span></li>
-        <li><span class="cv-entry__title">Unitary Phase of Gravity</span></li>
+      <p><em>Two manuscripts in preparation currently. Check back soon for updates:)</em></p>
+      <ul class="cv-list cv-list--tight">
+        <li><span class="cv-note">Global Symmetry in Cosmology</span></li>
+        <li><span class="cv-note">Unitary Phase of Gravity</span></li>
       </ul>
     </section>
 
