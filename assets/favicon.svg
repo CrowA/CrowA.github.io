@@ -1,17 +1,8 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
-  <!-- Black hole: photon ring with Doppler-bright lower arc, central shadow -->
-  <defs>
-    <linearGradient id="ring" x1="0.2" y1="0.9" x2="0.8" y2="0.1">
-      <stop offset="0" stop-color="#e6e5ff"/>
-      <stop offset="0.45" stop-color="#7a78ff"/>
-      <stop offset="1" stop-color="#1512e6"/>
-    </linearGradient>
-    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
-      <feGaussianBlur stdDeviation="2.4"/>
-    </filter>
-  </defs>
+  <!-- de Sitter Penrose diagram: conformal square, horizon diagonals,
+       the observer's static patch shaded in Klein blue -->
   <rect width="64" height="64" rx="12" fill="#0b0b10"/>
-  <circle cx="32" cy="32" r="16.5" fill="none" stroke="url(#ring)" stroke-width="11" opacity="0.4" filter="url(#glow)"/>
-  <circle cx="32" cy="32" r="16.5" fill="none" stroke="url(#ring)" stroke-width="6.5"/>
-  <circle cx="32" cy="32" r="12.6" fill="#000000"/>
+  <polygon points="32,32 50,14 50,50" fill="#1512e6" opacity="0.75"/>
+  <rect x="14" y="14" width="36" height="36" fill="none" stroke="#8886fc" stroke-width="3" stroke-linejoin="round"/>
+  <path d="M14 14 L50 50 M50 14 L14 50" stroke="#e6e5ff" stroke-width="3.2" stroke-linecap="round"/>
 </svg>
