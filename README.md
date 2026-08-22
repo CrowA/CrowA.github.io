@@ -26,7 +26,7 @@ index.html         Home: opening shuffle, then ONE screen — the blue
                    self-intro (name in EB Garamond, two guide links)
 photography.html   Photography index
 physics.html       Academic CV (research, education, projects, talks)
-blog/              Blog ("Field Notes") — a real Jekyll blog, see below
+blog/              Blog ("Fabricated Dream") — a real Jekyll blog, see below
 _posts/            Blog posts, one Markdown file each
 _layouts/          Jekyll layouts for the blog (blog.html, post.html)
 _config.yml        Jekyll config (blog title, permalinks, RSS feed)
@@ -71,7 +71,7 @@ A photo used in two places (e.g. in the intro AND in gallery i) exists as
 a copy in both folders on purpose: each slot is managed only by its own
 folder.
 
-## Blog ("Field Notes")
+## Blog ("Fabricated Dream")
 
 The blog is a proper Jekyll blog (the engine GitHub Pages runs natively —
 the same idea as a WordPress blog like wall.org/~aron, but static). To

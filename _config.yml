@@ -2,7 +2,7 @@
 # The hand-built pages (index.html, physics.html, photography*.html …)
 # have no front matter, so Jekyll copies them through untouched.
 
-title: Field Notes
+title: Fabricated Dream
 description: notes on physics, photography, and everything between
 url: "https://crowa.github.io"
 author: Crow (Ming) Tao
