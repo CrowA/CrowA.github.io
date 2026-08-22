@@ -140,9 +140,9 @@
     /* Beat sheet: rapid cuts, then the last two hold longer
        (the final one longest). */
     var beats = entries.map(function (_, i) {
-      if (i === entries.length - 1) return 1550;
-      if (i === entries.length - 2) return 820;
-      return 160;
+      if (i === entries.length - 1) return 1750;
+      if (i === entries.length - 2) return 950;
+      return 200;
     });
     var starts = [];
     var total = 0;
