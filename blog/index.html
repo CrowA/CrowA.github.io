@@ -4,6 +4,11 @@ title: null
 ---
 <div class="blog-cols">
   <main id="main" aria-label="Posts">
+    <section class="blog-about" aria-labelledby="blog-about-title">
+      <h2 class="blog-about__title" id="blog-about-title">About Crow (Ming) Tao</h2>
+      <p>Hi, here I will post blogs on novels and films(comments/writings); literary translations (on my own way, mostly to Chinese or the reverse); and of course my random thoughts.</p>
+    </section>
+
     {% for post in site.posts %}
     <article class="post">
       <header>
@@ -18,18 +23,6 @@ title: null
   </main>
 
   <aside aria-label="Sidebar">
-    <section class="widget" aria-labelledby="w-about">
-      <h2 class="widget__title" id="w-about">About</h2>
-      <p>
-        I am Crow (Ming) Tao — a physicist who never stopped carrying a
-        camera. I study quantum gravity and quantum information at the
-        Universiteit van Amsterdam.
-      </p>
-      <p>
-        <a href="mailto:crow.tao@student.uva.nl">crow.tao@student.uva.nl</a>
-      </p>
-    </section>
-
     <section class="widget" aria-labelledby="w-recent">
       <h2 class="widget__title" id="w-recent">Recent posts</h2>
       <ul>

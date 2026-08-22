@@ -128,6 +128,20 @@ body.blog-page {
   color: #21759b;
 }
 
+/* --- about block at the top of the main column (Aron-style) --- */
+.blog-about {
+  max-width: 625px;
+  margin-bottom: 40px;
+  padding-bottom: 40px;
+  border-bottom: 1px solid #ededed;
+}
+.blog-about__title {
+  margin-bottom: 8px;
+  font-size: 16px;
+  font-weight: 700;
+  color: #333;
+}
+
 /* --- posts --- */
 .post {
   max-width: 625px;
