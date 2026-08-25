@@ -294,6 +294,42 @@
     el.textContent = new Date().getFullYear();
   });
 
+  /* ---------- Photo links: view in a lightbox, not the raw file ---------- */
+  var photoLinks = document.querySelectorAll("a.js-photo");
+  if (photoLinks.length) {
+    var photoDialog = document.createElement("dialog");
+    photoDialog.className = "lightbox";
+    photoDialog.setAttribute("aria-label", "Photo");
+    photoDialog.innerHTML =
+      '<div class="lightbox__inner">' +
+      '<img alt="">' +
+      '<button class="lightbox__btn lightbox__close" type="button">Close</button>' +
+      "</div>";
+    document.body.appendChild(photoDialog);
+    var photoImg = photoDialog.querySelector("img");
+    photoLinks.forEach(function (link) {
+      link.addEventListener("click", function (e) {
+        e.preventDefault();
+        photoImg.src = link.getAttribute("href");
+        photoImg.alt = link.textContent;
+        photoDialog.showModal();
+      });
+    });
+    photoDialog
+      .querySelector(".lightbox__close")
+      .addEventListener("click", function () {
+        photoDialog.close();
+      });
+    photoDialog.addEventListener("click", function (e) {
+      if (e.target === photoDialog || e.target.classList.contains("lightbox__inner")) {
+        photoDialog.close();
+      }
+    });
+    photoDialog.addEventListener("close", function () {
+      photoImg.removeAttribute("src");
+    });
+  }
+
   /* ---------- Hero canvas: two-source interference field ----------
      A quiet nod to physics: dots whose size follows the superposition
      of two circular waves. One source drifts toward the pointer. */
