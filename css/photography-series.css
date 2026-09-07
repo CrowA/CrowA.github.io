@@ -73,6 +73,24 @@ body.photography-series {
   color: #111;
 }
 
+/* Optional fixed backdrop: pages opt in with class="has-backdrop" and
+   --series-backdrop set to an image; kept faint so the photos stay legible.
+   The body must stay transparent here — its own background would paint
+   over the negative-z-index layer (the white ground comes from html). */
+.photography-series.has-backdrop {
+  background: transparent;
+}
+
+.photography-series.has-backdrop::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background: var(--series-backdrop) center / cover no-repeat;
+  opacity: 0.14;
+  pointer-events: none;
+}
+
 .series-title {
   position: absolute;
   width: 1px;
