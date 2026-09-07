@@ -73,21 +73,22 @@ body.photography-series {
   color: #111;
 }
 
-/* Optional fixed backdrop: pages opt in with class="has-backdrop" and
-   --series-backdrop set to an image; kept faint so the photos stay legible.
-   The body must stay transparent here — its own background would paint
-   over the negative-z-index layer (the white ground comes from html). */
-.photography-series.has-backdrop {
+/* Optional warm-paper backdrop: pages opt in with class="has-paper".
+   The layer carries both the paper tone and a faint film grain (the
+   grain's 5% alpha is baked into the SVG so no layer opacity is
+   needed). The body must stay transparent — its own background would
+   paint over the negative-z-index layer. */
+.photography-series.has-paper {
   background: transparent;
 }
 
-.photography-series.has-backdrop::before {
+.photography-series.has-paper::before {
   content: "";
   position: fixed;
   inset: 0;
   z-index: -1;
-  background: var(--series-backdrop) center / cover no-repeat;
-  opacity: 0.14;
+  background-color: #f5f3ee;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='220' height='220' filter='url(%23n)' opacity='0.05'/%3E%3C/svg%3E");
   pointer-events: none;
 }
 
